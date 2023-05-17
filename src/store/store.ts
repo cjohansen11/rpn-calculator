@@ -1,6 +1,11 @@
-const store = {
+interface Store {
+  previousResult: null | number;
+  stack: number[];
+}
+
+const store: Store = {
   previousResult: null,
-  stake: [],
+  stack: [],
 };
 
 export default store;
