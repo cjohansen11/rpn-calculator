@@ -37,7 +37,7 @@ function handleSingleLineInput(expression: string) {
     }
   }
 
-  console.log(chalk.bgGreen(result));
+  console.log(chalk.green(result));
 }
 
 /**

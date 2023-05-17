@@ -36,15 +36,11 @@ function handleQuit() {
  */
 function useCalculator() {
   spacer();
-  console.log(
-    chalk.bgYellowBright("Enter 'm' or 'menu' to return to the menu")
-  );
-  console.log(
-    chalk.bgYellowBright("Enter 'c' or 'clear' to reset the calculator")
-  );
+  console.log(chalk.yellow("Enter 'm' or 'menu' to return to the menu"));
+  console.log(chalk.yellow("Enter 'c' or 'clear' to reset the calculator"));
   spacer();
 
-  rl.setPrompt(chalk.blueBright("> "));
+  rl.setPrompt(chalk.blue("> "));
   rl.prompt();
 
   rl.on("line", handlePrompt);
@@ -60,7 +56,7 @@ function useCalculator() {
     if (input === "c" || input === "clear") {
       store.stack = [];
       store.previousResult = null;
-      console.log(chalk.yellowBright("Cleared calculator data"));
+      console.log(chalk.yellow("Cleared calculator data"));
       spacer();
       rl.prompt();
       return;
@@ -70,7 +66,7 @@ function useCalculator() {
       handleInput(input, () => rl.prompt());
     } catch (error) {
       console.log(
-        chalk.redBright(`Oops an error occurred, please try again: ${error}`)
+        chalk.red(`Oops an error occurred, please try again: ${error}`)
       );
       spacer();
       rl.prompt();
@@ -86,13 +82,11 @@ const menuOptions = {
 
 function displayMenu() {
   spacer();
-  console.log(chalk.bgCyanBright("=== Menu ==="));
+  console.log(chalk.cyan("=== Menu ==="));
   console.log("0. Quit Program");
   console.log("1. RPN Calculator");
   spacer();
-  console.log(
-    chalk.bgYellowBright("Press 'q' to exit the application at point")
-  );
+  console.log(chalk.yellow("Press 'q' to exit the application at point"));
   spacer();
 
   rl.question("Enter your choice: ", (choice) => {
@@ -102,7 +96,7 @@ function displayMenu() {
       selectedOption();
       return;
     } else {
-      console.log(chalk.redBright("Invalid choice"));
+      console.log(chalk.red("Invalid choice"));
     }
 
     spacer();

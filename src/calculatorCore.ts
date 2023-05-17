@@ -39,7 +39,7 @@ export const performOperation = (operator: string, isSingleLine?: boolean) => {
   if (isSingleLine) {
     return result;
   } else {
-    console.log(chalk.bgGreen(result));
+    console.log(chalk.green(result));
     return;
   }
 };
