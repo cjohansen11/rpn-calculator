@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/cjohansen11/rpn-calculator#readme",
   "dependencies": {
-    "chalk": "^5.2.0"
+    "chalk": "4.0.0"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",

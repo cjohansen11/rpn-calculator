@@ -1,6 +1,7 @@
 import store from "./store/store";
+import chalk from "chalk";
 
-export const performOperation = (operator: string) => {
+export const performOperation = (operator: string, isSingleLine?: boolean) => {
   if (store.stack.length < 2) {
     throw new Error(
       "There are not enough operands with your current operation"
@@ -35,5 +36,10 @@ export const performOperation = (operator: string) => {
   store.stack.push(result);
   store.previousResult = result;
 
-  return result;
+  if (isSingleLine) {
+    return result;
+  } else {
+    console.log(chalk.bgGreen(result));
+    return;
+  }
 };

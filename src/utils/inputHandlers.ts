@@ -1,6 +1,7 @@
 import { containsWhitespace, isNumeric } from ".";
 import store from "../store/store";
 import { performOperation } from "../calculatorCore";
+import chalk from "chalk";
 
 /**
  *
@@ -32,11 +33,11 @@ function handleSingleLineInput(expression: string) {
       store.stack.push(value);
       store.previousResult = value;
     } else {
-      result = performOperation(token);
+      result = performOperation(token, true);
     }
   }
 
-  console.log(result);
+  console.log(chalk.bgGreen(result));
 }
 
 /**
@@ -56,7 +57,7 @@ function handleMultipleLineInput(input: string) {
       const value = parseFloat(line);
       store.stack.push(value);
       store.previousResult = value;
-      console.log(value);
+      console.log(chalk.yellow(value));
     } else {
       performOperation(line.trim());
     }

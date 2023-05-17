@@ -2,6 +2,7 @@ import readline from "readline";
 import { stdin } from "node:process";
 import { handleInput } from "./utils";
 import store from "./store/store";
+import chalk from "chalk";
 
 // Print one empty line
 const spacer = console.log;
@@ -35,11 +36,15 @@ function handleQuit() {
  */
 function useCalculator() {
   spacer();
-  console.log("Enter 'm' or 'menu' to return to the menu");
-  console.log("Enter 'c' or 'clear' to reset the calculator");
+  console.log(
+    chalk.bgYellowBright("Enter 'm' or 'menu' to return to the menu")
+  );
+  console.log(
+    chalk.bgYellowBright("Enter 'c' or 'clear' to reset the calculator")
+  );
   spacer();
 
-  rl.setPrompt("> ");
+  rl.setPrompt(chalk.blueBright("> "));
   rl.prompt();
 
   rl.on("line", handlePrompt);
@@ -55,6 +60,8 @@ function useCalculator() {
     if (input === "c" || input === "clear") {
       store.stack = [];
       store.previousResult = null;
+      console.log(chalk.yellowBright("Cleared calculator data"));
+      spacer();
       rl.prompt();
       return;
     }
@@ -62,7 +69,9 @@ function useCalculator() {
     try {
       handleInput(input, () => rl.prompt());
     } catch (error) {
-      console.log(`Oops an error occurred, please try again: ${error}`);
+      console.log(
+        chalk.redBright(`Oops an error occurred, please try again: ${error}`)
+      );
       spacer();
       rl.prompt();
     }
@@ -77,11 +86,13 @@ const menuOptions = {
 
 function displayMenu() {
   spacer();
-  console.log("=== Menu ===");
+  console.log(chalk.bgCyanBright("=== Menu ==="));
   console.log("0. Quit Program");
   console.log("1. RPN Calculator");
   spacer();
-  console.log("Press 'q' to exit the application at point");
+  console.log(
+    chalk.bgYellowBright("Press 'q' to exit the application at point")
+  );
   spacer();
 
   rl.question("Enter your choice: ", (choice) => {
@@ -91,7 +102,7 @@ function displayMenu() {
       selectedOption();
       return;
     } else {
-      console.log("Invalid choice");
+      console.log(chalk.redBright("Invalid choice"));
     }
 
     spacer();
