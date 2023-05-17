@@ -1,3 +1,5 @@
 import { handleInput } from "./inputHandlers";
+import { containsWhitespace } from "./containsWhitespace";
+import { isNumeric } from "./isNumeric";
 
-export { handleInput };
+export { handleInput, containsWhitespace, isNumeric };
