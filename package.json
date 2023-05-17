@@ -4,7 +4,9 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "mocha --require ts-node/register **/*.spec.ts --exit"
+    "test": "mocha --require ts-node/register **/*.spec.ts --exit",
+    "start": "ts-node ./src/cli.ts",
+    "build": "tsc -p ."
   },
   "repository": {
     "type": "git",
