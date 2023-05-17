@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha --require ts-node/register **/*.spec.ts --exit",
     "start": "ts-node ./src/cli.ts",
-    "build": "tsc -p ."
+    "build": "tsc -p .",
+    "build-exe": "npm run build && pkg ./dist/cli.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,7 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^20.1.7",
     "mocha": "^10.2.0",
+    "pkg": "^5.8.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
